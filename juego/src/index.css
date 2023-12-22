@@ -1,0 +1,228 @@
+/* Estilos globales */
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  /* Tamaño de fuente predeterminado */
+  line-height: 24px;
+  /* Altura de línea predeterminada */
+  font-weight: 400;
+  /* Grosor de fuente predeterminado */
+  color-scheme: light dark;
+  /* Habilita el cambio de esquema de color según la preferencia del usuario */
+  color: rgba(255, 255, 255, 0.87);
+  /* Color de texto principal */
+  background-color: #242424;
+  /* Color de fondo principal */
+  font-synthesis: none;
+  /* Desactiva la síntesis de fuente */
+  text-rendering: optimizeLegibility;
+  /* Optimiza la legibilidad del texto */
+  -webkit-font-smoothing: antialiased;
+  /* Suaviza las fuentes en WebKit */
+  -moz-osx-font-smoothing: grayscale;
+  /* Suaviza las fuentes en macOS */
+  -webkit-text-size-adjust: 100%;
+  /* Ajusta el tamaño del texto en WebKit */
+}
+
+/* Estilos para el cuerpo de la página */
+body {
+  margin: 0;
+  /* Elimina el margen predeterminado */
+  display: flex;
+  /* Se usa un contenedor flexible para alinear el contenido */
+  justify-content: center;
+  /* Se centra horizontalmente el contenido */
+  min-width: 320px;
+  /* Ancho mínimo de 320px para asegurar la responsividad */
+  min-height: 100vh;
+  /* Altura mínima del viewport */
+}
+
+/* Estilos globales para todos los elementos */
+* {
+  padding: 0;
+  /* Elimina el relleno predeterminado */
+  margin: 0;
+  /* Elimina el margen predeterminado */
+  box-sizing: border-box;
+  /* Establece el modelo de caja en border-box */
+}
+
+/* Estilos para el elemento con clase .board */
+.board {
+  width: fit-content;
+  /* Ancho que se ajusta al contenido */
+  margin: 40px auto;
+  /* Margen superior e inferior de 40px, centrado horizontalmente */
+  text-align: center;
+  /* Texto centrado horizontalmente */
+}
+
+/* Estilos para el encabezado dentro de .board */
+.board h1 {
+  color: #eee;
+  /* Color de texto */
+  margin-bottom: 16px;
+  /* Margen inferior de 16px */
+}
+
+/* Estilos para los botones dentro de .board */
+.board button {
+  padding: 8px 12px;
+  /* Espaciado interno del botón */
+  margin: 25px;
+  /* Margen alrededor del botón */
+  background: transparent;
+  /* Fondo transparente */
+  border: 2px solid #eee;
+  /* Borde sólido con color #eee */
+  color: #eee;
+  /* Color de texto */
+  width: 100px;
+  /* Ancho del botón */
+  border-radius: 5px;
+  /* Radio del borde del botón */
+  transition: 0.2s;
+  /* Transición de 0.2 segundos en cambios */
+  font-weight: bold;
+  /* Grosor de fuente en negrita */
+  cursor: pointer;
+  /* Cambia el cursor al puntero al pasar el mouse */
+}
+
+/* Estilos para los botones al pasar el mouse */
+.board button:hover {
+  background: #eee;
+  /* Cambia el fondo a #eee al pasar el mouse */
+  color: #222;
+  /* Cambia el color de texto a #222 al pasar el mouse */
+}
+
+
+/* Estilos para el elemento con clase .game dentro de .board */
+.board .game {
+  display: grid;
+  /* Usa un layout de cuadrícula */
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 columnas con igual espacio entre ellas */
+  gap: 10px;
+  /* Espacio entre los elementos hijos */
+}
+
+/* Estilos para el elemento con clase .turn */
+.turn {
+  display: flex;
+  /* Usa un layout flexible */
+  justify-content: center;
+  /* Centra el contenido horizontalmente */
+  margin: 15px auto;
+  /* Margen superior e inferior de 15px, centrado horizontalmente */
+  width: fit-content;
+  /* Ancho que se ajusta al contenido */
+  position: relative;
+  /* Posición relativa para elementos hijos posicionados */
+  border-radius: 10px;
+  /* Radio del borde del elemento */
+}
+
+/* Estilos para los elementos con clase .square dentro de .turn y .winner */
+.turn .square,
+.winner .square {
+  width: 70px;
+  /* Ancho de 70px */
+  height: 70px;
+  /* Altura de 70px */
+  pointer-events: none;
+  /* Deshabilita eventos de puntero en los cuadrados */
+  border-color: transparent;
+  /* Borde transparente */
+}
+
+/* Estilos para los cuadrados seleccionados */
+.square.is-selected {
+  color: #fff;
+  /* Color de texto blanco */
+  background: #09f;
+  /* Fondo azul cuando se selecciona */
+}
+
+/* Estilos para el elemento con clase .winner */
+.winner {
+  position: absolute;
+  /* Posición absoluta */
+  width: 100vw;
+  /* Ancho igual al viewport */
+  height: 100vh;
+  /* Altura igual al viewport */
+  top: 0;
+  /* Alineado en la parte superior */
+  left: 0;
+  /* Alineado en la parte izquierda */
+  display: grid;
+  /* Usa un layout de cuadrícula */
+  place-items: center;
+  /* Centra el contenido vertical y horizontalmente */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Fondo con opacidad */
+}
+
+/* Estilos para el elemento con clase .text dentro de .winner */
+.winner .text {
+  background: #111;
+  /* Fondo oscuro */
+  height: 300px;
+  /* Altura de 300px */
+  width: 320px;
+  /* Ancho de 320px */
+  border: 2px solid #eee;
+  /* Borde sólido con color #eee */
+  border-radius: 10px;
+  /* Radio del borde del elemento */
+  display: flex;
+  /* Usa un layout flexible */
+  flex-direction: column;
+  /* Columna de elementos hijos */
+  justify-content: center;
+  /* Centra el contenido verticalmente */
+  align-items: center;
+  /* Centra el contenido horizontalmente */
+  gap: 20px;
+  /* Espacio entre elementos hijos */
+}
+
+/* Estilos para el elemento con clase .win dentro de .winner */
+.winner .win {
+  margin: 0 auto;
+  /* Margen superior e inferior de 0, centrado horizontalmente */
+  width: fit-content;
+  /* Ancho que se ajusta al contenido */
+  border: 2px solid #eee;
+  /* Borde sólido con color #eee */
+  border-radius: 10px;
+  /* Radio del borde del elemento */
+  display: flex;
+  /* Usa un layout flexible */
+  gap: 15px;
+  /* Espacio entre elementos hijos */
+}
+
+/* Estilos para los elementos con clase .square */
+.square {
+  width: 100px;
+  /* Ancho de 100px */
+  height: 100px;
+  /* Altura de 100px */
+  border: 2px solid #eee;
+  /* Borde sólido con color #eee */
+  border-radius: 5px;
+  /* Radio del borde del elemento */
+  display: grid;
+  /* Usa un layout de cuadrícula */
+  place-items: center;
+  /* Centra el contenido vertical y horizontalmente */
+  cursor: pointer;
+  /* Cambia el cursor al puntero al pasar el mouse */
+  font-size: 48px;
+  /* Tamaño de fuente de 48px */
+}

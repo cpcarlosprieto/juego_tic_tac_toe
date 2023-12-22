@@ -1,0 +1,67 @@
+/* Estilos para el elemento con el id "root" */
+#root {
+  max-width: 1280px;
+  /* Ancho máximo del elemento */
+  margin: 0 auto;
+  /* Centra el elemento horizontalmente en la página */
+  padding: 2rem;
+  /* Relleno interior del elemento */
+  text-align: center;
+  /* Alineación del texto en el centro */
+}
+
+/* Estilos para elementos con la clase "logo" */
+.logo {
+  height: 6em;
+  /* Altura del elemento */
+  padding: 1.5em;
+  /* Relleno interior del elemento */
+  will-change: filter;
+  /* Define una propiedad de transformación */
+}
+
+/* Estilos para elementos con la clase "logo" al pasar el cursor sobre ellos */
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+  /* Aplica un efecto de sombra al pasar el cursor */
+}
+
+/* Estilos para elementos con la clase "logo" y la clase "react" al pasar el cursor sobre ellos */
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+  /* Aplica un efecto de sombra diferente al pasar el cursor */
+
+}
+
+/* Definición la animación "logo-spin" */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+    /* Rotación inicial de 0 grados */
+  }
+
+  to {
+    transform: rotate(360deg);
+    /* Rotación final de 360 grados (una vuelta completa) */
+  }
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+    /* Aplica la animación "logo-spin" de forma continua */
+  }
+}
+
+/* Estilos para elementos con la clase "card" */
+.card {
+  padding: 2em;
+  /* Relleno interior del elemento */
+}
+
+/* Estilos para elementos con la clase "read-the-docs" */
+.read-the-docs {
+  color: #888;
+  /* Cambia el color del texto a gris (#888) */
+}
